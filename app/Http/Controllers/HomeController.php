@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ova;
+use App\Models\Area;
+use App\Models\Nucleo;
+use App\Models\Idioma;
 use Illuminate\Http\Request;
 use DB;
 
@@ -43,8 +46,31 @@ class HomeController extends Controller
                     }
                 }
             })
+            ->where(function ($query) use ($post){
+                if(isset($post['nucleos'])){
+                    if (!empty($post['nucleos'])) {
+                       $query->where('nuc_id',$post['nucleos']);
+                    }
+                }
+            })
+            ->where(function ($query) use ($post){
+                if(isset($post['areas'])){
+                    if (!empty($post['areas'])) {
+                       $query->where('are_id',$post['areas']);
+                    }
+                }
+            })
+            ->where(function ($query) use ($post){
+                if(isset($post['idiomas'])){
+                    if (!empty($post['idiomas'])) {
+                       $query->where('idioma',$post['idiomas']);
+                    }
+                }
+            })
             ->get();
-        return view('ovas')->with('ovas', $ova);
+        $area = Area::all();
+        $nucleo =Nucleo::all();
+        return view('ovas')->with('ovas', $ova)->with('area', $area)->with('nucleo',$nucleo)->with('idioma',Idioma::all())->with('post',$post);
     }
     /**
      * funcion que dirige a la vista de la ficha

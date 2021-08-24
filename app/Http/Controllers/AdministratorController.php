@@ -120,4 +120,5 @@ class AdministratorController extends Controller
             return response()->json(['code' => 500, 'msg' => 'Datos errados']);
         }
     }
+
 }

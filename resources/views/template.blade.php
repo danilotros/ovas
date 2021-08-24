@@ -21,24 +21,28 @@
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/litepicker/2.0.11/litepicker.js"></script>
     <title>@yield('title')</title>
 </head>
 
 <body>
     {{-- header --}}
     @php
-        $areas=ListaAreas();
+        $areas = ListaAreas();
     @endphp
     @if (Auth::check())
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-image: linear-gradient(45deg,#e84a5f, #2a363b)">
-        <a class="navbar-brand" href="/home">
-            <img src="{{asset('img/udlogo.png')}}" width="70" height="70" alt="">
-        </a>
-        <a class="navbar-brand" href="/home">
-            <img src="{{asset('img/tecnologicalogo.png')}}" width="70" height="70" alt="">
-        </a>
-        <ul class="navbar-nav" style="margin-left:5rem;">
+        <nav class="navbar navbar-expand-lg navbar-light"
+            style="background-image: linear-gradient(45deg,#e84a5f, #2a363b)">
+            <a class="navbar-brand" href="/home">
+                <img src="{{ asset('img/udlogo.png') }}" width="70" height="70" alt="">
+            </a>
+            <a class="navbar-brand" href="/home">
+                <img src="{{ asset('img/tecnologicalogo.png') }}" width="70" height="70" alt="">
+            </a>
+            {{-- <ul class="navbar-nav" style="margin-left:5rem;">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
@@ -47,58 +51,74 @@
 
 
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    @foreach ( $areas as $item)
+                    @foreach ($areas as $item)
                         <a class="dropdown-item" href="/ovas/{{$item->id}}">{{$item->nombre_area}}</a>
                     @endforeach
                 </div>
 
             </li>
-        </ul>
-        <form class="form-inline" action="/ovas" method="POST">
+        </ul> --}}
+            {{-- <form class="form-inline" action="/ovas" method="POST">
             @csrf
             <input class="form-control" type="search" placeholder="" aria-label="Search" name="datos" style="margin-left:12rem;">
             <button class="btn btn-outline-danger my-2 my-sm-0 ml-2 mr-5" type="submit">Buscar</button>
-        </form>
+        </form> --}}
 
-        <a class="navbar-brand" href="/crear-ovas">
-            OVA
-        </a>
-        <a class="navbar-brand" href="/home" style="margin-left:15rem;">
-            <img src="{{asset('img/virtuslogo.png')}}" width="70" height="70" alt="">
-        </a>
-    </nav>
+
+            <a style="margin-left:15rem; text-decoration:none; color:inherit;" href="/home">HOME</a>
+            <a style="margin-left:15rem; text-decoration:none; color:inherit;" href="/ovas">BANCO</a>
+            <ul class="nav-item dropdown" style="margin-left:8rem; margin-top:1rem;">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    <img src="{{ asset('img/user.png') }}" class="special-img img-circle">{{ auth()->user()->name }}<b
+                        class="caret"></b></a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li></li><a href="/crear-ovas">OVA</a></li>
+                    <li><a href="/logout"><i class="fa fa-sign-out"></i> SALIR</a></li>
+                </ul>
+            </ul>
+            <a class="navbar-brand" href="/home" style="margin-left:10rem;">
+                <img src="{{ asset('img/virtuslogo.png') }}" width="70" height="70" alt="">
+            </a>
+
+        </nav>
     @else
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-image: linear-gradient(45deg,#e84a5f, #2a363b)">
-        <a class="navbar-brand" href="/home">
-            <img src="{{asset('img/udlogo.png')}}" width="70" height="70" alt="">
-        </a>
-        <a class="navbar-brand" href="/home">
-            <img src="{{asset('img/tecnologicalogo.png')}}" width="70" height="70" alt="">
-        </a>
-        <ul class="navbar-nav" style="margin-left:5rem;">
+        <nav class="navbar navbar-expand-lg navbar-light"
+            style="background-image: linear-gradient(45deg,#e84a5f, #2a363b)">
+            <a class="navbar-brand" href="/home">
+                <img src="{{ asset('img/udlogo.png') }}" width="70" height="70" alt="">
+            </a>
+            <a class="navbar-brand" href="/home">
+                <img src="{{ asset('img/tecnologicalogo.png') }}" width="70" height="70" alt="">
+            </a>
+            {{-- <ul class="navbar-nav" style="margin-left:5rem;">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
                     AREAS
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    @foreach ( $areas as $item)
+                    @foreach ($areas as $item)
                         <a class="dropdown-item" href="/ovas/{{$item->id}}">{{$item->nombre_area}}</a>
                     @endforeach
                 </div>
 
 
             </li>
-        </ul>
-        <form class="form-inline" action="/ovas" method="POST">
+        </ul> --}}
+            {{-- <form class="form-inline" action="/ovas" method="POST">
             @csrf
             <input class="form-control" type="search" placeholder="" aria-label="Search" name="datos" style="margin-left:12rem;">
             <button class="btn btn-outline-danger my-2 my-sm-0 ml-2 mr-5" type="submit">Buscar</button>
-        </form>
-        <a class="navbar-brand" href="/home" style="margin-left:15rem;">
-            <img src="{{asset('img/virtuslogo.png')}}" width="70" height="70" alt="">
-        </a>
-    </nav>
+        </form> --}}
+            <a style="margin-left:15rem; text-decoration:none; color:inherit;" href="/home">HOME</a>
+            <a style="margin-left:15rem; text-decoration:none; color:inherit;" href="/ovas">BANCO</a>
+
+            <a class="navbar-brand" href="/home" style="margin-left:28rem;">
+                <img src="{{ asset('img/virtuslogo.png') }}" width="70" height="70" alt="">
+            </a>
+
+        </nav>
     @endif
 
     {{-- endheader --}}
@@ -129,7 +149,8 @@
                 <div class="col-md-3 mb-md-0 mb-3 mx-2">
 
                     <!-- Content -->
-                    <h6 class="text-uppercase font-weight-bold"><a class="texto" href="https://www.udistrital.edu.co/inicio">Ubicación UDFJC</a></h6>
+                    <h6 class="text-uppercase font-weight-bold"><a class="texto"
+                            href="https://www.udistrital.edu.co/inicio">Ubicación UDFJC</a></h6>
 
 
                 </div>
@@ -139,7 +160,8 @@
                 <div class="col-md-2 mb-md-0 mb-3 mx-2">
 
                     <!-- Content -->
-                    <h6 class="text-uppercase font-weight-bold"><a class="texto" href="https://etitc.edu.co/es/">Ubicación ETICTC</a> </h6>
+                    <h6 class="text-uppercase font-weight-bold"><a class="texto"
+                            href="https://etitc.edu.co/es/">Ubicación ETICTC</a> </h6>
 
 
                 </div>
@@ -148,7 +170,8 @@
                 <div class="col-md-2 mb-md-0 mb-3 mx-2">
 
                     <!-- Content -->
-                    <h6 class="text-uppercase font-weight-bold"><a  class="texto"href="http://www.pedagogiavirtual.com/sitio/">Nuestra SAS</a> </h6>
+                    <h6 class="text-uppercase font-weight-bold"><a class="texto"
+                            href="http://www.pedagogiavirtual.com/sitio/">Nuestra SAS</a> </h6>
 
 
                 </div>
@@ -170,14 +193,11 @@
     @yield('javascript')
 </body>
 <script>
-    $(function () {
-            //Se pone para que en todos los llamados ajax se bloquee la pantalla mostrando el mensaje Procesando...
-            $.blockUI.defaults.message = '<img src="{{asset('img/loading.gif')}}" width="100px">';
-            $(document).ajaxStart($.blockUI).ajaxStop($.unblockUI);
-        });
-
-
-
+    $(function() {
+        //Se pone para que en todos los llamados ajax se bloquee la pantalla mostrando el mensaje Procesando...
+        $.blockUI.defaults.message = '<img src="{{ asset('img/loading.gif') }}" width="100px">';
+        $(document).ajaxStart($.blockUI).ajaxStop($.unblockUI);
+    });
 </script>
 <style>
     .blockUI,
@@ -190,9 +210,29 @@
         z-index: 2147483636 !important;
     }
 
-    .texto{
+    .texto {
         text-decoration: none !important;
         color: #2a363b;
+    }
+
+    .special-img {
+        position: relative;
+        top: -5px;
+        float: left;
+        left: -5px;
+        width: 30px;
+        height: 30px;
+    }
+
+    .img-circle {
+        border-radius: 10rem;
+        border-block-width:2rem;
+        border-block-color: white;
+    }
+
+    .dropdown-menu {
+        text-align: center;
+        padding: 0;
     }
 
 </style>

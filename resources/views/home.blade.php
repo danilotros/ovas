@@ -1,10 +1,15 @@
 @extends('template')
 @section('content')
-<style>
+
+     <style>
     /* Make the image fully responsive */
     .carousel-inner img {
         width: 100%;
         height: 600px;
+    }
+    .carousel-inner img:hover
+     {
+        opacity: 0.5;
     }
 
     #main-carousel {
@@ -14,9 +19,11 @@
     }
 
     .carousel-caption {
-        color: black;
+        color:black;
         text-align: justify;
     }
+
+
 
     .carousel-caption h1 {
         text-align: center;
@@ -38,12 +45,7 @@
 
 
                             <p>Es un conjunto de recursos digitales, autocontenible y reutilizable, con un propósito
-                                educativo y constituido por al menos tres componentes internos: contenidos, actividades
-                                de aprendizaje y elementos de contextualización. El Objeto de Aprendizaje debe tener una
-                                estructura de información externa (metadatos) que facilite su almacenamiento,
-                                identificación y recuperación". Ministerio de Educación Nacional Colombiano MEN (2006).
-                                Objetos Virtuales de Aprendizaje e Informativos. Consultado junio 6 de 2009, en Portal
-                                Colombia Aprende
+                                educativo.
                                 http://www.colombiaaprende.edu.co/html/directivos/1598/article-172369.html.
                             </p>
 
@@ -55,11 +57,7 @@
                         <div class="carousel-caption d-none d-md-block">
                             <h1>BANCO DE OBJETOS VIRTUALES DE APRENDIZAJE</h1>
                             <p>Un Banco de Objetos de Aprendizaje es una colección de recursos digitales para la
-                                enseñanza y el aprendizaje. Además de su contenido, cada recurso digital tiene
-                                información asociada mediante campos denominados “Metadatos”, que permiten identificar
-                                atributos como la descripción del recurso, los autores, las palabras clave, los derechos
-                                de autor y la forma de licencia, entre otros, lo que facilita su búsqueda, selección, y
-                                uso. </p>
+                                enseñanza y el aprendizaje.</p>
 
                         </div>
                     </div>
@@ -75,4 +73,11 @@
                 </a>
             </div><!-- /.carousel -->
         </div><!-- /.container -->
+
+
+@endsection
+@section('javascript')
+    <script>
+
+    </script>
 @endsection

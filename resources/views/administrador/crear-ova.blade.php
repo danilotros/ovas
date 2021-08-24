@@ -14,7 +14,7 @@
                         required>
 
                     <label for="validationCustom03" class="form-label mt-3">Idioma</label>
-                    <select class="form-select obligatorio" id="validationCustom03" name="idioma" required>
+                    <select class="form-control obligatorio" id="validationCustom03" name="idioma" required>
                         <option selected disabled value="">Selecione</option>
                         @foreach ($idiomas as $item)
                             <option value="{{ $item->idioma }}">{{ $item->idioma }}</option>
@@ -22,27 +22,27 @@
 
                     </select>
                     <label for="validationCustom14" class="form-label">Uso</label>
-                    <select class="form-select obligatorio" id="validationCustom14" name="uso" required>
+                    <select class="form-control obligatorio" id="validationCustom14" name="uso" required>
                         <option selected disabled value="">Elegir</option>
                         <option>Academico</option>
                         <option>Comercial</option>
                     </select>
                     <label for="validationCustom15" class="form-label">Área</label>
-                    <select class="form-select obligatorio" id="validationCustom15" name="area" required>
+                    <select class="form-control obligatorio" id="validationCustom15" name="area" required>
                         <option selected disabled value="">Selecione</option>
                         @foreach ($areas as $item)
                             <option value="{{ $item->id }}">{{ $item->nombre_area }}</option>
                         @endforeach
                     </select>
                     <label for="validationCustom16" class="form-label">Núcleo</label>
-                    <select class="form-select obligatorio" id="validationCustom16" name="nucleo" required>
+                    <select class="form-control obligatorio" id="validationCustom16" name="nucleo" required>
                         <option selected disabled value="">Selecione</option>
                         @foreach ($nucleos as $item)
                             <option value="{{ $item->id }}">{{ $item->nombre_nucleo }}</option>
                         @endforeach
                     </select>
                     <label for="validationCustom14" class="form-label">Entidad</label>
-                    <select class="form-select obligatorio" id="validationCustom14" name="entidad" required>
+                    <select class="form-control obligatorio" id="validationCustom14" name="entidad" required>
                         <option selected disabled value="">Selecione</option>
                         @foreach ($entidades as $item)
                             <option value="{{ $item->entidad }}">{{ $item->entidad }}</option>
