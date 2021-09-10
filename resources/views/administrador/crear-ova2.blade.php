@@ -19,9 +19,9 @@
                 <textarea class="form-control mt-2 obligatorio" id="input3" placeholder="Descripción del Ova" name="descripcion"required></textarea>
             </div>
             <div class="form-row">
-                <div class="form-group col-lg-6">
+                <div class="form-group col-md-2">
                     <label for="input4">Idioma</label>
-                    <select class="form-control obligatorio selecionadores" id="validationCustom03" name="idioma" required>
+                    <select class="form-select obligatorio selecionadores" id="validationCustom03" name="idioma" required>
                         <option selected disabled value="">Selecione</option>
                         @foreach ($idiomas as $item)
                             <option value="{{ $item->idioma }}">{{ $item->idioma }}</option>
@@ -34,7 +34,7 @@
             <div class="form-row">
                 <div class="form-group col-sm-6">
                     <label for="input5">Uso</label>
-                    <select class="form-control obligatorio selecionadores" id="input 5" name="uso" required>
+                    <select class="form-select obligatorio selecionadores" id="input 5" name="uso" required>
                         <option selected disabled value="">Selecione</option>
                         <option>Academico</option>
                         <option>Comercial</option>
@@ -42,7 +42,7 @@
                 </div>
                 <div class="form-group col-sm-6">
                     <label for="input8">Entidad</label>
-                    <select class="form-control obligatorio selecionadores" id="input8" name="entidad" required>
+                    <select class="form-select obligatorio selecionadores" id="input8" name="entidad" required>
                         <option selected disabled value="">Selecione</option>
                         @foreach ($entidades as $item)
                             <option value="{{ $item->entidad }}">{{ $item->entidad }}</option>
@@ -57,7 +57,7 @@
 
                 <div class="form-group col-sm-6">
                     <label for="input6">Area</label>
-                    <select class="form-control obligatorio selecionadores" id="input6" name="area"  required>
+                    <select class="form-select obligatorio selecionadores" id="input6" name="area"  required>
                         <option selected disabled value="">Selecione</option>
                         @foreach ($areas as $item)
                             <option value="{{ $item->id }}">{{ $item->nombre_area }}</option>
@@ -66,7 +66,7 @@
                 </div>
                 <div class="form-group col-sm-6">
                     <label for="input7">Núcleo</label>
-                    <select class="form-control obligatorio selecionadores" id="input7" name="nucleo" required>
+                    <select class="form-select obligatorio selecionadores" id="input7" name="nucleo" required>
                         <option selected disabled value="">Selecione</option>
                         @foreach ($nucleos as $item)
                             <option value="{{ $item->id }}">{{ $item->nombre_nucleo }}</option>
@@ -122,7 +122,7 @@
                     </div>
                 </div>
 
-                <div class=" form-group col-md-4 ">
+                <div class=" form-group col-md-4 my-3">
                     <label for=" input16 " class=" form-label mt-3">Usuario que publica</label>
                     <input type=" text " class=" form-control obligatorio  autores " id=" input15 " placeholder="USUARIO QUE PUBLICA" name="usuarioPublica"required>
                 </div>
@@ -135,7 +135,7 @@
     </div>
     <style>
         .selecionadores{
-            width: 26rem;
+            width: 23rem;
         }
         .autores{
             width: 70rem;

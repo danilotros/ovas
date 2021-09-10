@@ -67,6 +67,12 @@ class HomeController extends Controller
                     }
                 }
             })
+            ->where(function ($query) use ($post) {
+                if (isset($post['fechas']))
+                    if (!empty($post['fechas'])) {
+                        $query->where('created_at', '<=', $post['fechas']);
+                    }
+            })
             ->get();
         $area = Area::all();
         $nucleo =Nucleo::all();

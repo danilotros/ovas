@@ -7,10 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="routeName" content="{{ Route::currentRouteName() }}">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
+    </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
@@ -22,7 +23,8 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/litepicker/2.0.11/litepicker.js"></script>
     <title>@yield('title')</title>
@@ -36,87 +38,81 @@
     @if (Auth::check())
         <nav class="navbar navbar-expand-lg navbar-light"
             style="background-image: linear-gradient(45deg,#e84a5f, #2a363b)">
-            <a class="navbar-brand" href="/home">
-                <img src="{{ asset('img/udlogo.png') }}" width="70" height="70" alt="">
-            </a>
-            <a class="navbar-brand" href="/home">
-                <img src="{{ asset('img/tecnologicalogo.png') }}" width="70" height="70" alt="">
-            </a>
-            {{-- <ul class="navbar-nav" style="margin-left:5rem;">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    AREAS
+            <div class="">
+                <a class="navbar-brand" href="/home">
+                    <img src="{{ asset('img/virtuslogo.png') }}" class="img-fluid" width="70" height="70" alt="">
                 </a>
-
-
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    @foreach ($areas as $item)
-                        <a class="dropdown-item" href="/ovas/{{$item->id}}">{{$item->nombre_area}}</a>
-                    @endforeach
-                </div>
-
-            </li>
-        </ul> --}}
-            {{-- <form class="form-inline" action="/ovas" method="POST">
-            @csrf
-            <input class="form-control" type="search" placeholder="" aria-label="Search" name="datos" style="margin-left:12rem;">
-            <button class="btn btn-outline-danger my-2 my-sm-0 ml-2 mr-5" type="submit">Buscar</button>
-        </form> --}}
-
-
+            </div>
             <a style="margin-left:15rem; text-decoration:none; color:inherit;" href="/home">HOME</a>
             <a style="margin-left:15rem; text-decoration:none; color:inherit;" href="/ovas">BANCO</a>
             <ul class="nav-item dropdown" style="margin-left:8rem; margin-top:1rem;">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
-                    <img src="{{ asset('img/user.png') }}" class="special-img img-circle">{{ auth()->user()->name }}<b
-                        class="caret"></b></a>
+                    <img src="{{ asset('img/user.png') }}"
+                        class="special-img img-circle">{{ auth()->user()->name }}<b class="caret"></b></a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <li></li><a href="/crear-ovas">OVA</a></li>
                     <li><a href="/logout"><i class="fa fa-sign-out"></i> SALIR</a></li>
                 </ul>
             </ul>
-            <a class="navbar-brand" href="/home" style="margin-left:10rem;">
-                <img src="{{ asset('img/virtuslogo.png') }}" width="70" height="70" alt="">
-            </a>
-
+            <div class="d-none d-md-block">
+                <a class="navbar-brand " href="/home">
+                    <img src="{{ asset('img/udlogo.png') }}" class="img-fluid" width="70" height="70" alt="">
+                </a>
+            </div>
+            <div class="d-none d-md-block">
+                <a class="navbar-brand " href="/home">
+                    <img src="{{ asset('img/tecnologicalogo.png') }}" class="img-fluid" width="70" height="70" alt="">
+                </a>
+            </div>
         </nav>
     @else
-        <nav class="navbar navbar-expand-lg navbar-light"
+        <nav class="navbar navbar-expand-sm navbar-light"
             style="background-image: linear-gradient(45deg,#e84a5f, #2a363b)">
-            <a class="navbar-brand" href="/home">
-                <img src="{{ asset('img/udlogo.png') }}" width="70" height="70" alt="">
-            </a>
-            <a class="navbar-brand" href="/home">
-                <img src="{{ asset('img/tecnologicalogo.png') }}" width="70" height="70" alt="">
-            </a>
-            {{-- <ul class="navbar-nav" style="margin-left:5rem;">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    AREAS
+
+
+            <div class="">
+                <a class="navbar-brand" href="/home">
+                    <img src="{{ asset('img/virtuslogo.png') }}" class="img-fluid" width="70" height="70" alt="">
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    @foreach ($areas as $item)
-                        <a class="dropdown-item" href="/ovas/{{$item->id}}">{{$item->nombre_area}}</a>
-                    @endforeach
-                </div>
+            </div>
 
 
-            </li>
-        </ul> --}}
-            {{-- <form class="form-inline" action="/ovas" method="POST">
-            @csrf
-            <input class="form-control" type="search" placeholder="" aria-label="Search" name="datos" style="margin-left:12rem;">
-            <button class="btn btn-outline-danger my-2 my-sm-0 ml-2 mr-5" type="submit">Buscar</button>
-        </form> --}}
-            <a style="margin-left:15rem; text-decoration:none; color:inherit;" href="/home">HOME</a>
-            <a style="margin-left:15rem; text-decoration:none; color:inherit;" href="/ovas">BANCO</a>
 
-            <a class="navbar-brand" href="/home" style="margin-left:28rem;">
-                <img src="{{ asset('img/virtuslogo.png') }}" width="70" height="70" alt="">
-            </a>
+            <button
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#nabVar1"
+            class="navbar-toggler"
+            aria-controls="nabvarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            >
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse" id="nabVar1">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="/home" class="nav-link active mx-5">HOME</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="/ovas" class="nav-link mx-5">BANCO</a>
+                    </li>
+                </ul>
+            </div>
+
+
+
+            <div class="d-none d-md-block">
+                <a class="navbar-brand " href="/home">
+                    <img src="{{ asset('img/udlogo.png') }}" class="img-fluid" width="70" height="70" alt="">
+                </a>
+            </div>
+            <div class="d-none d-md-block">
+                <a class="navbar-brand " href="/home">
+                    <img src="{{ asset('img/tecnologicalogo.png') }}" class="img-fluid" width="70" height="70" alt="">
+                </a>
+            </div>
 
         </nav>
     @endif
@@ -136,7 +132,7 @@
                 <div class="col-md-3 mt-md-0 mt-3 mx-5">
 
                     <!-- Content -->
-                    <h6 class=" font-weight-bold">© Grupo Interinstitucional Virtus 2020 - 2021</h6>
+                    <h6 class=" font-weight-bold">© Grupo Interinstitucional Virtus 2021</h6>
 
 
 
@@ -226,7 +222,7 @@
 
     .img-circle {
         border-radius: 10rem;
-        border-block-width:2rem;
+        border-block-width: 2rem;
         border-block-color: white;
     }
 

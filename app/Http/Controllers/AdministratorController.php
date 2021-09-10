@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 
 /**
  * Clase encargarda de gestionar las funcionalidades del area administrativa
@@ -76,6 +77,9 @@ class AdministratorController extends Controller
             $ova->archivo = $ruta;
         }
         $ova->use_id = 1;
+        // $response = Http::withBody()->post('/ova',[
+        //     'titulo' => 'Taylor',
+        // ]);
         if ($ova->save()) {
             /**
              * @return response()->json(['']) devuelve un mensaje de exito a la vista para dirigirce a una
